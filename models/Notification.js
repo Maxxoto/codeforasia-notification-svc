@@ -5,12 +5,13 @@ const attendanceSchema = require('./Attendance');
 
 const notificationSchema = new Schema(
   {
-    date: Date,
+    dateSent: Date,
+    dateSentUnix: Number,
     time: String,
     title: String,
     subject: String,
     body: String,
-    recipients: [attendanceSchema],
+    attendances: [attendanceSchema],
   },
   {
     timestamps: true,

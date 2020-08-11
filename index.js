@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 // ENV and KEYS
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9000;
 const keys = require('./config/keys');
 
 // Import Models

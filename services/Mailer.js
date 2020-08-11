@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-console */
 /* eslint-disable consistent-return */
@@ -10,11 +11,12 @@ const keys = require('../config/keys');
 client.setApiKey(keys.sendGridKey);
 
 class Mailer extends classes.Mail {
-  constructor({ subject, attendances }, content) {
+  constructor({ subject, attendances, dateSentUnix }, content) {
     super();
 
     this.setFrom('admin@codefor.asia');
     this.setSubject(subject);
+    this.setSendAt(dateSentUnix); // Scheduled send email
     this.body = this.addHtmlContent(content);
     this.attendances = this.formatAddresses(attendances);
     this.addAttendances();
@@ -24,11 +26,12 @@ class Mailer extends classes.Mail {
     return attendances.map(({ email }) => new classes.EmailAddress(email));
   }
 
-  addAttendancess() {
+  addAttendances() {
     const personalize = new classes.Personalization();
     this.attendances.forEach((attendance) => {
       personalize.addTo(attendance);
     });
+    // personalize.setSendAt(send_at); // You can use date_sent inside here or global
 
     this.addPersonalization(personalize.toJSON());
   }
