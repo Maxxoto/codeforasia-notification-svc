@@ -11,27 +11,32 @@ module.exports = (app) => {
   app.post('/api/notification', async (req, res) => {
     const { date, time, title, subject, body, attendances } = req.body;
 
-    const notification = new Notification({
-      date,
-      time,
-      title,
-      subject,
-      body,
-      attendances: attendances.split(',').map((email) => ({
-        email: email.trim(),
-      })),
-      _user: req.user.id,
-      dateSent: Date.now(),
-    });
-
-    const mailer = new Mailer(notification, surveyTemplate(notification));
     try {
-      await mailer.send();
-      await notification.save();
+      const notification = new Notification({
+        date,
+        time,
+        title,
+        subject,
+        body,
+        attendances: attendances.split(',').map((email) => ({
+          email: email.trim(),
+        })),
+        //   _user: req.user.id,
+        dateSent: Date.now(),
+      });
 
-      res.send({ message: 'Sucessfully send an email' });
-    } catch (e) {
-      res.status(422).send(e);
+      const mailer = new Mailer(notification, surveyTemplate(notification));
+
+      try {
+        await mailer.send();
+        await notification.save();
+
+        res.send({ message: 'Sucessfully send an email' });
+      } catch (e) {
+        res.status(422).send(e);
+      }
+    } catch (error) {
+      res.send({ message: `Error ${error}` });
     }
   });
 };

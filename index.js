@@ -2,18 +2,33 @@ const express = require('express');
 
 const app = express();
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
+// ENV and KEYS
 const PORT = process.env.PORT || 3000;
+const keys = require('./config/keys');
 
-// Models
+// Import Models
 require('./models/Notification');
 
+// Import Routes
 const NotificationRoute = require('./routes/notificationRoutes');
 
-app.get('/', (req, res) => {
-  res.send('Halo');
+// Database Connection
+mongoose.connect(keys.mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is successfully started on port ${PORT}`);
-});
+// Global Middleware
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+app.use(bodyParser.json());
+
+// Declaring Routes
+NotificationRoute(app);
+
+app.listen(PORT);
