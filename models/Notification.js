@@ -5,7 +5,7 @@ const attendanceSchema = require('./Attendance');
 
 const notificationSchema = new Schema(
   {
-    sendgridId: { type: String, required: true },
+    batch_id: { type: String, required: true },
     dateSent: { type: Date, required: true },
     dateSentUnix: { type: Number, required: true },
     title: { type: String, required: true },
@@ -13,6 +13,7 @@ const notificationSchema = new Schema(
     body: { type: String, required: true },
     attendances: [attendanceSchema],
     events: { type: [Object], require: true, default: [{ status: 'N/A' }] },
+    type: { type: [String], require: true },
   },
   {
     timestamps: true,

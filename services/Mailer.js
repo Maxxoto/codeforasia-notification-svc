@@ -11,13 +11,14 @@ const keys = require('../config/keys');
 client.setApiKey(keys.sendGridKey);
 
 class Mailer extends classes.Mail {
-  constructor({ subject, attendances, sendgridId, dateSentUnix }, content) {
+  constructor({ subject, attendances, dateSentUnix, batch_id }, content) {
     super();
 
-    this.setFrom('admin@codefor.asia');
+    this.setFrom('event@codefor.asia');
     this.setSubject(subject);
     this.setSendAt(dateSentUnix); // Scheduled send email
-    this.setCustomArgs({ sendgridId });
+    this.setBatchId(batch_id);
+    this.setCustomArgs({ batch_id });
     this.body = this.addHtmlContent(content);
     this.attendances = this.formatAddresses(attendances);
     this.addAttendances();
@@ -44,7 +45,6 @@ class Mailer extends classes.Mail {
         url: '/v3/mail/send',
         body: this.toJSON(),
       };
-
       return await client.request(request);
     } catch (e) {
       console.log(`Error ${e}`);
