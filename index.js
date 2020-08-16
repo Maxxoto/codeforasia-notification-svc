@@ -10,7 +10,7 @@ const keys = require('./config/keys');
 
 // Import Models
 require('./models/Notification');
-
+require('./models/Attendance');
 // Import Routes
 const NotificationRoute = require('./routes/notificationRoutes');
 

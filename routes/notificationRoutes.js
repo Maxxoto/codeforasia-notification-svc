@@ -4,16 +4,20 @@
 /* eslint-disable object-curly-newline */
 
 // Modules
+
 const moment = require('moment');
 const mongoose = require('mongoose');
 const fetch = require('node-fetch');
+const schedule = require('node-schedule');
 const keys = require('../config/keys');
+// eslint-disable-next-line import/order
+const telnyx = require('telnyx')(keys.telnyxKey);
 // Email Template
 const surveyTemplate = require('../services/emailTemplates');
 
 // Mongoose model
 const Notification = mongoose.model('notification');
-
+const Attendance = mongoose.model('attendance');
 // Import Class Mailer Model
 const Mailer = require('../services/Mailer');
 
@@ -54,12 +58,39 @@ module.exports = (app) => {
         }
         if (type.includes('sms')) {
           // This contain create sms object or calls
+
+          const scheduled_date = new Date(send_at);
+
+          const attendanceArr = [];
+          const splitAtt = attendances.split(',');
+          splitAtt.forEach((email) => {
+            attendanceArr.push(email);
+          });
+
+          const searchPhone = await Attendance.find({
+            email: { $in: [attendances] },
+          }).exec();
+          console.log([attendances]);
+          //   schedule.scheduleJob(scheduled_date, async () => {
+          //     try {
+          //       const message = telnyx.messages.create({
+          //         from: '+16508226245',
+          //         to: '',
+          //         text: body,
+          //       });
+
+          //       const data = await message.data;
+          //       console.log(data);
+          //     } catch (error) {
+          //       console.log(error);
+          //     }
+          //   });
         }
 
         await notification.save();
 
         res.send({
-          message: 'Successfully send an email',
+          message: 'Successfully create a notification !',
         });
       } catch (e) {
         res.status(422).send(e);
@@ -179,4 +210,11 @@ module.exports = (app) => {
       }
     }
   );
+
+  // SMS Sections
+  app.post('/api/notification/sms/webhooks', async (req, res) => {
+    const result = req.body;
+    res.send({ result });
+    console.log(result);
+  });
 };
