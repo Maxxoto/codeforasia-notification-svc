@@ -139,6 +139,11 @@ module.exports = (app) => {
   });
 
   //   Cancel Scheduled Notification
+  // Notes :
+  // To cancel the scheduled send must be more than 10 minutes
+  // less than 10 minuted cancel the scheduled time are not guaranteed to be canceled.
+  // source : https://sendgrid.com/docs/for-developers/sending-email/stopping-a-scheduled-send/
+
   app.post(
     '/api/notification/:notificationID/action=:status',
     async (req, res) => {
@@ -154,17 +159,20 @@ module.exports = (app) => {
           'https://api.sendgrid.com/v3/user/scheduled_sends',
           {
             method: 'POST',
-            body: '',
+            body: JSON.stringify({ batch_id: await result.batch_id, status }),
             headers: {
               Authorization: `Bearer ${keys.sendGridKey}`,
+              'Content-Type': 'application/json',
             },
           }
         );
 
+        const resultSendgrid = await sendgridCancel.json();
+
         res.send({
           code: '200',
           message: 'Notification will be cancelled !',
-          data: result,
+          data: { result, resultSendgrid },
         });
       } catch (error) {
         res.status(422).send({ message: error });
