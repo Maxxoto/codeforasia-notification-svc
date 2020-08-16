@@ -12,6 +12,7 @@ const notificationSchema = new Schema(
     subject: { type: String, required: true },
     body: { type: String, required: true },
     attendances: [attendanceSchema],
+    // attendances: {type: Schema.Types.},
     events: { type: [Object], require: true, default: [{ status: 'N/A' }] },
     type: { type: [String], require: true },
   },

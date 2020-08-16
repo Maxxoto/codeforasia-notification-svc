@@ -6,6 +6,6 @@ const attendanceSchema = new Schema({
   phone: { type: Number, default: 0 },
 });
 
-mongoose.model('attendance', attendanceSchema);
+// mongoose.model('attendance', attendanceSchema);
 
 module.exports = attendanceSchema;

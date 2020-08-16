@@ -31,7 +31,7 @@ class Mailer extends classes.Mail {
   addAttendances() {
     const personalize = new classes.Personalization();
     this.attendances.forEach((attendance) => {
-      personalize.addTo(attendance);
+      personalize.addTo(attendance.email);
     });
     // personalize.setSendAt(send_at); // You can use date_sent inside here or global
 

@@ -17,7 +17,7 @@ const surveyTemplate = require('../services/emailTemplates');
 
 // Mongoose model
 const Notification = mongoose.model('notification');
-const Attendance = mongoose.model('attendance');
+// const Attendance = mongoose.model('attendance');
 // Import Class Mailer Model
 const Mailer = require('../services/Mailer');
 
@@ -41,9 +41,7 @@ module.exports = (app) => {
         title,
         subject,
         body,
-        attendances: attendances.split(',').map((email) => ({
-          email: email.trim(),
-        })),
+        attendances,
         batch_id: res.locals.batchID,
         dateSent: send_at,
         dateSentUnix: unixDate,
@@ -61,30 +59,31 @@ module.exports = (app) => {
 
           const scheduled_date = new Date(send_at);
 
-          const attendanceArr = [];
-          const splitAtt = attendances.split(',');
-          splitAtt.forEach((email) => {
-            attendanceArr.push(email);
+          const arrPhoneNumber = attendances.reduce((result, val) => {
+            if (val.phone) {
+              result.push(val.phone);
+            }
+            return result;
+          }, []);
+
+          schedule.scheduleJob(scheduled_date, async () => {
+            try {
+              telnyx.messages.create(
+                {
+                  from: '+16508226245',
+                  to: arrPhoneNumber.toString(),
+                  text: body,
+                },
+                (err, response) => {
+                  // asynchronously called
+                  console.log(response);
+                  console.log(err);
+                }
+              );
+            } catch (error) {
+              console.log(error);
+            }
           });
-
-          const searchPhone = await Attendance.find({
-            email: { $in: [attendances] },
-          }).exec();
-          console.log([attendances]);
-          //   schedule.scheduleJob(scheduled_date, async () => {
-          //     try {
-          //       const message = telnyx.messages.create({
-          //         from: '+16508226245',
-          //         to: '',
-          //         text: body,
-          //       });
-
-          //       const data = await message.data;
-          //       console.log(data);
-          //     } catch (error) {
-          //       console.log(error);
-          //     }
-          //   });
         }
 
         await notification.save();
