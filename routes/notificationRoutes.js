@@ -235,6 +235,6 @@ module.exports = (app) => {
     }
 
     // res.send({ result });
-    // console.log(result.data);
+    console.log(result.data);
   });
 };
