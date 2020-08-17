@@ -14,19 +14,19 @@ How to use (using postman) :
     ENDPOINT: /api/notification
     METHOD  : GET
     
-**Create a notification :** 
-    ENDPOINT: /api/notification
-    METHOD  : POST
-    BODY    :   {
-                    "send_at":"17 Aug 2020 11:43:10",
-                    "title" : "Holla",
-                    "subject":"first email",
-                    "body":"this is body message",
-                    "attendances": [{"email":"xxxx@gmail.com","phone":"+6285xxxx"},{"email": "xxxx1@gmail.com"}],
-                    "type" : ["mail","sms"],
-                } 
+**Create a notification :** <br>
+    Endpoint: /api/notification <br>
+    Method  : POST <br>
+    Body (Raw/JSON)    :   <br> {<br>
+                    "send_at":"17 Aug 2020 11:43:10",<br>
+                    "title" : "Holla",<br>
+                    "subject":"first email",<br>
+                    "body":"this is body message",<br>
+                    "attendances": [{"email":"xxxx@gmail.com","phone":"+6285xxxx"},{"email": "xxxx1@gmail.com"}],<br>
+                    "type" : ["mail","sms"],<br>
+                } <br>
     
-
+<br><br><br>
 
 
 Please use postman collection in repository to explore this API . Thanks you
