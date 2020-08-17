@@ -84,6 +84,8 @@ module.exports = (app) => {
                     { events: { sms: { id, typeSMS, to } } },
                     { new: true, useFindAndModify: false }
                   );
+
+                  console.log('SMS sent !');
                 }
               );
             } catch (error) {
@@ -235,6 +237,6 @@ module.exports = (app) => {
     }
 
     // res.send({ result });
-    console.log(result.data);
+    console.log(result);
   });
 };
