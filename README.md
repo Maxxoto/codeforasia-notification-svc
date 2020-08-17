@@ -18,14 +18,13 @@ Example : <br>
 **Create a notification :** <br>
     Endpoint: /api/notification <br>
     Method  : POST <br>
-    Body (Raw/JSON)    :   <br> {<br>
-                    "send_at":"17 Aug 2020 11:43:10",<br>
-                    "title" : "Holla",<br>
-                    "subject":"first email",<br>
-                    "body":"this is body message",<br>
-                    "attendances": [{"email":"xxxx@gmail.com","phone":"+6285xxxx"},{"email": "xxxx1@gmail.com"}],<br>
-                    "type" : ["mail","sms"],<br>
-                } <br>
+    Body Parameter : <br>
+- send_at (string) - ex : "17 Aug 2020 11:43:10"
+- title (string)
+- subject (string)
+- body (string)
+- attendance (array of object) ex : [{"email":"user1@gmail.com","phone":"+10123123312"},{"email": "user2@gmail.com"}],
+- type (array of strings) switch between SMS or Mail Notification , if use both ex: ["mail","sms"]
     
 <br><br><br>
 
