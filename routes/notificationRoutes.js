@@ -47,7 +47,6 @@ module.exports = (app) => {
         dateSentUnix: unixDate,
         type,
       });
-
       try {
         if (type.includes('mail')) {
           const mailer = new Mailer(notification, surveyTemplate(notification));
@@ -74,10 +73,17 @@ module.exports = (app) => {
                   to: arrPhoneNumber.toString(),
                   text: body,
                 },
-                (err, response) => {
-                  // asynchronously called
-                  console.log(response);
-                  console.log(err);
+                async (err, response) => {
+                  const { id, to } = response.data;
+                  const typeSMS = response.data.type;
+                  if (err) {
+                    res.send({ err });
+                  }
+                  await Notification.findOneAndUpdate(
+                    { _id: notification._id },
+                    { events: { sms: { id, typeSMS, to } } },
+                    { new: true, useFindAndModify: false }
+                  );
                 }
               );
             } catch (error) {
@@ -127,7 +133,7 @@ module.exports = (app) => {
     try {
       await Notification.findOneAndUpdate(
         { batch_id },
-        { events: obj },
+        { events: { email: obj } },
         { new: true, useFindAndModify: false }
       ).exec();
     } catch (error) {
@@ -213,7 +219,22 @@ module.exports = (app) => {
   // SMS Sections
   app.post('/api/notification/sms/webhooks', async (req, res) => {
     const result = req.body;
-    res.send({ result });
-    console.log(result);
+
+    const { id, type, to } = result.data.payload;
+
+    try {
+      const updated = await Notification.findOneAndUpdate(
+        { 'events.sms.id': id },
+        // { events: { sms: { id, type, to } } },
+        { events: { sms: [{ id, type, to }] } },
+        { new: true, useFindAndModify: false }
+      ).exec();
+      console.log(updated);
+    } catch (error) {
+      console.log(error);
+    }
+
+    // res.send({ result });
+    // console.log(result.data);
   });
 };
