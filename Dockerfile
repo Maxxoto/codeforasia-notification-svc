@@ -11,4 +11,4 @@ COPY . /service
 
 EXPOSE 9000
 
-CMD ["nodemon", "index.js"]
+CMD ["node", "index.js"]
