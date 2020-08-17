@@ -9,3 +9,16 @@ services:
     environment:
       - MONGO_USERNAME=hamlet
       - MONGO_PASSWORD=toor
+      - TZ=Asia/Jakarta
+  mongodb:
+    container_name: mongodb-main
+    restart: always
+    image: mongo
+    environment:
+      # provide your credentials here
+      - MONGO_INITDB_ROOT_USERNAME=hamlet
+      - MONGO_INITDB_ROOT_PASSWORD=toor
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27017:27017'

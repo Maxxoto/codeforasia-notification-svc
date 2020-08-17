@@ -1,11 +1,13 @@
 FROM node:12.16.1
 
 WORKDIR /service
-# ENV PORT 5001
 
 COPY package.json /service/package.json
 
 RUN npm install
+
+# SETUP Timezone
+ENV TZ Asia/Jakarta
 
 COPY . /service
 
