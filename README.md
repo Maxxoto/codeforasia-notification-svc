@@ -19,7 +19,7 @@ Example : <br>
     Endpoint: /api/notification <br>
     Method  : POST <br>
     Body Parameter : <br>
-- send_at (string) - ex : "17 Aug 2020 11:43:10"
+- send_at (string) **Remember this is Asia/Jakarta timezone,which may be different with your timezone** - ex : "17 Aug 2020 11:43:10"
 - title (string)
 - subject (string)
 - body (string)
