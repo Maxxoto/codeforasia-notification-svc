@@ -25,8 +25,8 @@ Example : <br>
 - body (string)
 - attendance (array of object) ex : [{"email":"user1@gmail.com","phone":"+10123123312"},{"email": "user2@gmail.com"}],
 - type (array of strings) switch between SMS or Mail Notification , if use both ex: ["mail","sms"]
-    
-<br><br><br>
 
+......Documentation in progress
+<br>
 
-Please use postman collection in repository to explore this API . Thanks you
+Please use postman [collection](https://github.com/Maxxoto/CodeForAsia-NotificationService/blob/master/Code%20For%20Asia%20NS%20Service.postman_collection.json) in repository to explore this API . Thanks you
