@@ -7,8 +7,9 @@ Base URL Endpoint : ec2-18-139-142-40.ap-southeast-1.compute.amazonaws.com:9000
 Core Stack : <br>
     - Email API using Sendgrid :zap: <br>
     - SMS API using Telnyx :cloud:
-    
-How to use (using postman) : 
+<br>
+
+Example : <br>
 
 **Get a notification :**
     ENDPOINT: /api/notification
