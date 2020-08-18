@@ -11,7 +11,5 @@ Core Stack : <br>
 <br>
 
 [Read The Docs](https://github.com/Maxxoto/CodeForAsia-NotificationService/blob/master/docs/en_docs.md) <br><br>
-**......Documentation in progress**
-<br>
 
 Please use postman [collection](https://github.com/Maxxoto/CodeForAsia-NotificationService/blob/master/Code%20For%20Asia%20NS%20Service.postman_collection.json) in repository to explore this API . Thanks you
