@@ -23,12 +23,23 @@ Used to create scheduled notification .
 ```
 ## Body Parameters
 
-    - send_at (required) (String) - To schedule the notification 
-    - title (required) (String) - The title of the notification
-    - subject (required) (String) - The subject of email notification
-    - body (required) (String) - The body of SMS or email notification
-    - attendances (required) (Array of object) - The list of notification recipients
-    - type (required) (Array of string) - Type of notification , whether SMS , Email or both
+**send_at** (required) 
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (String) - To schedule the notification </p>
+    
+**title** (required) 
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (String) - The title of the notification </p>
+    
+**subject** (required)
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (String) - The subject of email notification </p>
+    
+**body** (required) 
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (String) - The body of SMS or email notification </p>
+    
+**attendances** (required) 
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Array of object) - The list of notification recipients </p>
+    
+**type** (required) 
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Array of string) - Type of notification , whether SMS , Email or both </p>
 
 ## Success Response
 
