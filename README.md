@@ -5,27 +5,13 @@
 Base URL Endpoint : ec2-18-139-142-40.ap-southeast-1.compute.amazonaws.com:9000
 
 Core Stack : <br>
+    - Express JS 
     - Email API using Sendgrid :zap: <br>
     - SMS API using Telnyx :cloud:
+    - AWS
 <br>
 
-Example : <br>
-
-**Get a notification :**
-    ENDPOINT: /api/notification
-    METHOD  : GET
-    
-**Create a notification :** <br>
-    Endpoint: /api/notification <br>
-    Method  : POST <br>
-    Body Parameter : <br>
-- send_at (string) **Remember this is Asia/Jakarta timezone,which may be different with your timezone** - ex : "17 Aug 2020 11:43:10"
-- title (string)
-- subject (string)
-- body (string)
-- attendance (array of object) ex : [{"email":"user1@gmail.com","phone":"+10123123312"},{"email": "user2@gmail.com"}],
-- type (array of strings) switch between SMS or Mail Notification , if use both ex: ["mail","sms"]
-
+[Read The Docs]() <br>
 **......Documentation in progress**
 <br>
 
