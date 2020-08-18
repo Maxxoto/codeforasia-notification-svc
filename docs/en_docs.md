@@ -4,7 +4,7 @@ All endpoints require no Authentication.
 
 List Endpoint :
 
- - [Create Notification]() &nbsp;&nbsp; : POST  /api/notification/ 
+ - [Create Notification](https://github.com/Maxxoto/CodeForAsia-NotificationService/blob/master/docs/example/create_notifications.md) &nbsp;&nbsp; : POST  /api/notification/ 
  - [Get List of Notification]() &nbsp;&nbsp; : GET   /api/notification/ 
  - [Get Single Notification]() &nbsp;&nbsp; : GET   /api/notification/:notificationID
  - [Cancel the Notification (Works only for email)]() &nbsp;&nbsp; : POST /api/notification/:notificationID/action=:status    
