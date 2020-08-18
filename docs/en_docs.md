@@ -1,13 +1,16 @@
 Base Endpoint : http://ec2-18-139-142-40.ap-southeast-1.compute.amazonaws.com:9000
 
-Open endpoints require no Authentication.
-
-    Login : POST /api/login/
+All endpoints require no Authentication.
 
 List Endpoint :
 
-    Show Accessible Accounts : GET /api/accounts/
-    Create Account : POST /api/accounts/
-    Show An Account : GET /api/accounts/:pk/
-    Update An Account : PUT /api/accounts/:pk/
-    Delete An Account : DELETE /api/accounts/:pk/
+    Create Notification         : POST  /api/notification/
+    Get List of Notification    : GET   /api/notification/
+    Get Single Notification     : GET   /api/notification/:notificationID
+    Cancel the Scheduled Notification(Works only email) : POST /api/notification/:notificationID/action=:status    
+
+Webhook Endpoint : 
+    Purpose : Listening to status update . When webhook shows result , the notification status automatically updated in the database .
+    
+    Update Status Email : POST api/notification/webhooks
+    Update Status SMS   : POST api/notification/sms/webhooks
