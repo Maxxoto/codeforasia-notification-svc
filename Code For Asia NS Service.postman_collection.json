@@ -110,7 +110,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\n\t\"from\": \"Telnyx\",\n\t\"to\": [\"+6285790736486\"],\n\t\"text\": \"Hello this is sms notification service for code for asia\"\n}"
+							"raw": "{\n\t\"messaging_profile_id\":\"x\",\n\t\"from\": \"x\",\n\t\"to\": \"x\",\n\t\"text\": \"Hello this is sms notification service for code for asia\"\n}"
 						},
 						"url": {
 							"raw": "https://api.telnyx.com/v2/messages",
@@ -144,13 +144,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"send_at\":\"17 Aug 2020 04:04\",\n\t\"title\" : \"Holla, Im The New Superstar Yayyyyyyyyyyy\",\n\t\"subject\":\"First Email Again Again\",\n\t\"body\":\"If you read this , this is testing email then you can ignore it . Thanks you \",\n\t\"attendances\": [{\"email\":\"ahmatdanis24@gmail.com\",\"phone\":\"+6285790736486\"},{\"email\": \"ahmadzhda99@gmail.com\"}],\n\t\"type\" : [\"sms\"]\n}"
+					"raw": "{\n\t\"send_at\":\"17 Aug 2020 19:03:10\",\n\t\"title\" : \"Iam Title , Nice to meet you \",\n\t\"subject\":\"Uhm... this is test email \",\n\t\"body\":\"Hi , this is test message from dani . Please ignore it \",\n\t\"attendances\": [{\"email\":\"dani@mail.com\",\"phone\":\"+620000000000\"}],\n\t\"type\" : [\"sms\",\"mail\"]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:9000/api/notification",
-					"protocol": "http",
+					"raw": "ec2-18-139-142-40.ap-southeast-1.compute.amazonaws.com:9000/api/notification",
 					"host": [
-						"localhost"
+						"ec2-18-139-142-40",
+						"ap-southeast-1",
+						"compute",
+						"amazonaws",
+						"com"
 					],
 					"port": "9000",
 					"path": [
@@ -171,10 +174,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:9000/api/notification",
-					"protocol": "http",
+					"raw": "ec2-18-139-142-40.ap-southeast-1.compute.amazonaws.com:9000/api/notification",
 					"host": [
-						"localhost"
+						"ec2-18-139-142-40",
+						"ap-southeast-1",
+						"compute",
+						"amazonaws",
+						"com"
 					],
 					"port": "9000",
 					"path": [
@@ -195,16 +201,19 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:9000/api/notification/5f395cb3cd36b2c460bc029e",
-					"protocol": "http",
+					"raw": "ec2-18-139-142-40.ap-southeast-1.compute.amazonaws.com:9000/api/notification/5f3bf6397e645170cd9a607d",
 					"host": [
-						"localhost"
+						"ec2-18-139-142-40",
+						"ap-southeast-1",
+						"compute",
+						"amazonaws",
+						"com"
 					],
 					"port": "9000",
 					"path": [
 						"api",
 						"notification",
-						"5f395cb3cd36b2c460bc029e"
+						"5f3bf6397e645170cd9a607d"
 					]
 				}
 			},
@@ -237,16 +246,19 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:9000/api/notification/5f395cb3cd36b2c460bc029e/action=cancel",
-					"protocol": "http",
+					"raw": "ec2-18-139-142-40.ap-southeast-1.compute.amazonaws.com:9000/api/notification/5f3bf6397e645170cd9a607d/action=cancel",
 					"host": [
-						"localhost"
+						"ec2-18-139-142-40",
+						"ap-southeast-1",
+						"compute",
+						"amazonaws",
+						"com"
 					],
 					"port": "9000",
 					"path": [
 						"api",
 						"notification",
-						"5f395cb3cd36b2c460bc029e",
+						"5f3bf6397e645170cd9a607d",
 						"action=cancel"
 					]
 				}
