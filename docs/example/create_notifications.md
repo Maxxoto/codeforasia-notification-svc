@@ -17,7 +17,7 @@ Used to create scheduled notification .
 	"title" : "Iam Title , Nice to meet you ",
 	"subject":"Uhm... this is test email ",
 	"body":"Hi , this is test message from dani . Please ignore it ",
-	"attendances": [{"email":"dani@satusoft.com","phone":"+620000000"}],
+	"attendances": [{"email":"dani@mail.com","phone":"+620000000"}],
 	"type" : ["sms","mail"]
 }
 ```
