@@ -7,6 +7,7 @@ Core Stack : <br>
 - Express JS
 - Email API using Sendgrid :email: 
 - SMS API using Telnyx :phone:
+- Docker :whale:
 - Server using AWS Elastic Computing :cloud:
 
 <br>
