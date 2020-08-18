@@ -4,10 +4,11 @@
 
 
 Core Stack : <br>
-    - Express JS 
-    - Email API using Sendgrid :zap: <br>
-    - SMS API using Telnyx :cloud:
-    - AWS
+- Express JS
+- Email API using Sendgrid :email: 
+- SMS API using Telnyx :phone:
+- Server using AWS Elastic Computing :cloud:
+
 <br>
 
 [Read The Docs](https://github.com/Maxxoto/CodeForAsia-NotificationService/blob/master/docs/en_docs.md) <br><br>
