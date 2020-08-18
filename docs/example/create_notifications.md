@@ -1,30 +1,34 @@
-# Login
+# Create Notification
 
-Used to collect a Token for a registered User.
+Used to create scheduled notification .
 
-**URL** : `/api/login/`
+**URL** : `/api/notification/ `
 
 **Method** : `POST`
 
 **Auth required** : NO
 
-**Data constraints**
+**Request Body Example** :
+
 
 ```json
 {
-  "username": "[valid email address]",
-  "password": "[password in plain text]"
+	"send_at":"17 Aug 2020 19:03:10",
+	"title" : "Iam Title , Nice to meet you ",
+	"subject":"Uhm... this is test email ",
+	"body":"Hi , this is test message from dani . Please ignore it ",
+	"attendances": [{"email":"dani@satusoft.com","phone":"+620000000"}],
+	"type" : ["sms","mail"]
 }
 ```
+## Body Parameters
 
-**Data example**
-
-```json
-{
-  "username": "iloveauth@example.com",
-  "password": "abcd1234"
-}
-```
+    - send_at (required) (String) - To schedule the notification 
+    - title (required) (String) - The title of the notification
+    - subject (required) (String) - The subject of email notification
+    - body (required) (String) - The body of SMS or email notification
+    - attendances (required) (Array of object) - The list of notification recipients
+    - type (required) (Array of string) - Type of notification , whether SMS , Email or both
 
 ## Success Response
 
@@ -34,13 +38,13 @@ Used to collect a Token for a registered User.
 
 ```json
 {
-  "token": "93144b288eb1fdccbe46d6fc0f241a51766ecd3d"
+  "message": "Successfully create a notification !"
 }
 ```
 
 ## Error Response
 
-**Condition** : If 'username' and 'password' combination is wrong.
+**Condition** : Not Handled Yet
 
 **Code** : `400 BAD REQUEST`
 
@@ -48,6 +52,12 @@ Used to collect a Token for a registered User.
 
 ```json
 {
-  "non_field_errors": ["Unable to login with provided credentials."]
+  
 }
 ```
+## Notes
+- The notification will be send when the time is matched with **server** local time , which is now is set to Asia/Jakarta timezone . 
+- If you send notification earlier than now , there will be **no error response** because not handled yet . 
+- If you send **mail** notification earlier than now , the mail notification will be send immediately after you click SEND in postman client . 
+- If you send **SMS** notification earlier than now , **the server will not send any SMS .**
+- This endpoint still have bugs issue , you can find out in the Github issue page
