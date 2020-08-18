@@ -4,13 +4,13 @@ All endpoints require no Authentication.
 
 List Endpoint :
 
-    Create Notification         : POST  /api/notification/
-    Get List of Notification    : GET   /api/notification/
-    Get Single Notification     : GET   /api/notification/:notificationID
-    Cancel the Scheduled Notification(Works only email) : POST /api/notification/:notificationID/action=:status    
+ - [Create Notification]() &nbsp;&nbsp; : POST  /api/notification/ 
+ - [Get List of Notification]() &nbsp;&nbsp; : GET   /api/notification/ 
+ - [Get Single Notification]() &nbsp;&nbsp; : GET   /api/notification/:notificationID
+ - [Cancel the Notification (Works only for email)]() &nbsp;&nbsp; : POST /api/notification/:notificationID/action=:status    
 
 Webhook Endpoint : 
     Purpose : Listening to status update . When webhook shows result , the notification status automatically updated in the database .
     
-    Update Status Email : POST api/notification/webhooks
-    Update Status SMS   : POST api/notification/sms/webhooks
+ - [Update Status Email]() &nbsp;&nbsp; : POST api/notification/webhooks
+ - [Update Status SMS]() &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: POST api/notification/sms/webhooks
