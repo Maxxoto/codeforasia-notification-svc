@@ -10,7 +10,7 @@ Core Stack : <br>
     - AWS
 <br>
 
-[Read The Docs]() <br>
+[Read The Docs](https://github.com/Maxxoto/CodeForAsia-NotificationService/blob/master/docs/en_docs.md) <br><br>
 **......Documentation in progress**
 <br>
 
